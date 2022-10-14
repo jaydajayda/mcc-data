@@ -17,8 +17,10 @@ public class Event {
 	
 	@Column(name="EVENT_NAME")
 	String name;
+	
+	@Column(name = "EVENT_DATE")
 	String date;
-	ArrayList<Customer> customers;
+	//ArrayList<Customer> customers;
 
 	public long getId() {
 		return id;
