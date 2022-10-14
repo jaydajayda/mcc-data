@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add/Edit Purchase - SportyStuf Purchase Entry System</title>
+</head>
+<body>
+	<h1>Add/Edit Purchase</h1>
+
+	<!-- Save URL here -->
+
+	<form action="POST">
+		<table>
+			<tr>
+				<td>Customer Name</td>
+				<td><input type="text" name="name"/></td>
+			</tr>
+			<tr>
+				<td>Purchase Date</td>
+				<td>Use format: MMM d, yyyy</td>
+			</tr>
+			<tr>
+				<td>Product</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Save"/></td>
+				<!-- Add URL for cancel -->
+				<td><a href=''>Cancel</a></td>
+			</tr>
+		</table>
+	</form>
+
+	<div th:include="footer :: content"></div>
+
+</body>
+</html>
