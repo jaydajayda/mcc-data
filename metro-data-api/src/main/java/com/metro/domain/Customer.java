@@ -16,7 +16,7 @@ public class Customer {
 	
 	@Column(name="CUSTOMER_NAME")
 	String name;
-	
+	@Column(name="CUSTOMER_EMAIL")
 	String email;
 
 	public long getId() {

@@ -1,5 +1,6 @@
 package com.metro.domain;
 
+import java.util.ArrayList;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,10 +15,10 @@ public class Event {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	long id;
 	
-	@Column(name="CUSTOMER_NAME")
+	@Column(name="EVENT_NAME")
 	String name;
-	
-	String email;
+	String date;
+	ArrayList<Customer> customers;
 
 	public long getId() {
 		return id;
@@ -34,13 +35,13 @@ public class Event {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public String getEmail() {
-		return email;
+	
+	public String getDate() {
+		return date;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 }

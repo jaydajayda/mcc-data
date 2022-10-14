@@ -20,7 +20,6 @@ import com.metro.repository.CustomersRepository;
 
 @RestController
 @RequestMapping("/customers")
-
 public class CustomerAPI {
 
 	@Autowired
