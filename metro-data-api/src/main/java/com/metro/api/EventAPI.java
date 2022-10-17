@@ -38,7 +38,7 @@ public class EventAPI {
 	@PostMapping
 	public ResponseEntity<?> addEvent(@RequestBody Event newEvent, UriComponentsBuilder uri) {
 		
-		if (newEvent.getId() != 0 || newEvent.getName() == null || newEvent.getDate() == null) {
+		if (newEvent.getId() != 0 || newEvent.getCode() == null || newEvent.getTitle() == null || newEvent.getDescription() == null) {
 			return ResponseEntity.badRequest().build();
 		}
 		newEvent=repo.save(newEvent);
@@ -50,7 +50,7 @@ public class EventAPI {
 	@PutMapping("/{eventId}")
 	public ResponseEntity<?> putEvent(@RequestBody Event newEvent, @PathVariable("eventId") long eventId) {
 		
-		if (newEvent.getId() != eventId || newEvent.getName() == null || newEvent.getDate() == null) {
+		if (newEvent.getId() != eventId || newEvent.getCode() == null || newEvent.getTitle() == null || newEvent.getDescription() == null) {
 			return ResponseEntity.badRequest().build();
 		}
 		newEvent=repo.save(newEvent);
@@ -60,8 +60,8 @@ public class EventAPI {
 	@DeleteMapping("/{eventId}")
 	public ResponseEntity<?> deleteEventById(@PathVariable("eventId") long eventId) {
 		try {
-		repo.deleteById(eventId);
-		return ResponseEntity.noContent().build();
+			repo.deleteById(eventId);
+			return ResponseEntity.noContent().build();
 		} catch (Exception e) {
 			return ResponseEntity.badRequest().build();
 		}
