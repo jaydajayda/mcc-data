@@ -1,6 +1,7 @@
 package com.metro.api;
 
 import java.net.URI;
+import java.util.Iterator;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.metro.domain.Customer;
+import com.metro.logging.ApiLogger;
 import com.metro.repository.CustomersRepository;
 
 @RestController
@@ -36,6 +38,21 @@ public class CustomerAPI {
 		return repo.findById(id);
 	}
 	
+	@GetMapping("/byname/{username}")
+	public ResponseEntity<?> lookupCustomerByNameGet(@PathVariable("username") String username,
+			UriComponentsBuilder uri) {
+		ApiLogger.log("username: " + username);
+		Iterator<Customer> customers = repo.findAll().iterator();
+		while(customers.hasNext()) {
+			Customer cust = customers.next();
+			if(cust.getName().equalsIgnoreCase(username)) {
+				ResponseEntity<?> response = ResponseEntity.ok(cust);
+				return response;				
+			}			
+		}
+		return ResponseEntity.badRequest().build();
+	}
+	
 	@PostMapping
 	public ResponseEntity<?> addCustomer(@RequestBody Customer newCustomer, UriComponentsBuilder uri) {
 		
@@ -46,6 +63,20 @@ public class CustomerAPI {
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newCustomer.getId()).toUri();
 		ResponseEntity<?> response = ResponseEntity.created(location).build();
 		return response;
+	}
+	
+	@PostMapping("/byname")
+	public ResponseEntity<?> lookupCustomerByNamePost(@RequestBody String username, UriComponentsBuilder uri) {
+		ApiLogger.log("username: " + username);
+		Iterator<Customer> customers = repo.findAll().iterator();
+		while(customers.hasNext()) {
+			Customer cust = customers.next();
+			if(cust.getName().equals(username)) {
+				ResponseEntity<?> response = ResponseEntity.ok(cust);
+				return response;				
+			}			
+		}
+		return ResponseEntity.badRequest().build();
 	}
 	
 	@PutMapping("/{customerId}")
