@@ -1,7 +1,7 @@
-insert into CUSTOMERS (CUSTOMER_NAME, CUSTOMER_PASSWORD, CUSTOMER_EMAIL) VALUES ('Sam Brinker', 'pass', 'sambrinker@mail.com');
-insert into CUSTOMERS (CUSTOMER_NAME, CUSTOMER_PASSWORD, CUSTOMER_EMAIL) VALUES ('Jayda Schmidt', 'pass', 'jaydaschmidt@mail.com');
-insert into CUSTOMERS (CUSTOMER_NAME, CUSTOMER_PASSWORD, CUSTOMER_EMAIL) VALUES ('John Doe', 'pass', 'johndoe@gmail.com');
-insert into CUSTOMERS (CUSTOMER_NAME, CUSTOMER_PASSWORD, CUSTOMER_EMAIL) VALUES ('Jane Doe', 'pass', 'janedoe@gmail.com');
+insert into CUSTOMERS (CUSTOMER_NAME, CUSTOMER_PASSWORD, CUSTOMER_EMAIL) VALUES ('SamBrinker', 'pass', 'sambrinker@mail.com');
+insert into CUSTOMERS (CUSTOMER_NAME, CUSTOMER_PASSWORD, CUSTOMER_EMAIL) VALUES ('JaydaSchmidt', 'pass', 'jaydaschmidt@mail.com');
+insert into CUSTOMERS (CUSTOMER_NAME, CUSTOMER_PASSWORD, CUSTOMER_EMAIL) VALUES ('JohnDoe', 'pass', 'johndoe@gmail.com');
+insert into CUSTOMERS (CUSTOMER_NAME, CUSTOMER_PASSWORD, CUSTOMER_EMAIL) VALUES ('JaneDoe', 'pass', 'janedoe@gmail.com');
 
 insert into EVENTS (EVENT_CODE, EVENT_TITLE, EVENT_DESCRIPTION) VALUES ('XMAS', 'Christmas', 'Merry Christmas!');
 insert into EVENTS (EVENT_CODE, EVENT_TITLE, EVENT_DESCRIPTION) VALUES ('TKGV', 'Thanksgiving', 'Happy Thanksgiving!');
