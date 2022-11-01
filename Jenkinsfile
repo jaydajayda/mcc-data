@@ -32,6 +32,9 @@ node {
 	
 	  if(response=="Yes") {
 	    stage('Deploy to Kubernetes cluster') {
+          sh "minikube stop"
+          sh "minikube delete"
+          sh "minikube start --vm-driver='none'"
 	      sh "kubectl create deployment mccdata --image=mccdata:v1.0"
 	      sh "kubectl expose deployment mccdata --type=LoadBalancer --port=8080"
 	    }
