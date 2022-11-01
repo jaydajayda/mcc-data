@@ -12,7 +12,7 @@ node {
     }
 
     stage ("Clean-up Pre-existing Resources") {
-	sh 'docker container stop $(docker container list -q)'
+	sh 'docker stop $(docker container ls -q)'
 	sh 'docker container prune -f'
     	sh 'docker rmi -f $(docker images -f "dangling=true" -q)'
     }
