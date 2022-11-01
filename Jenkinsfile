@@ -32,8 +32,8 @@ node {
 	
 	  if(response=="Yes") {
 	    stage('Deploy to Kubernetes cluster') {
-	      sh "kubectl create deployment mcc-data --image=mccdata:v1.0"
-	      sh "kubectl expose deployment mcc-data --type=LoadBalancer --port=8080"
+	      sh "kubectl create deployment mccdata --image=mccdata:v1.0"
+	      sh "kubectl expose deployment mccdata --type=LoadBalancer --port=8080"
 	    }
 	  }
     }
