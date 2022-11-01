@@ -10,6 +10,12 @@ node {
     stage ("Gradle bootJar-Package") {
         sh 'gradle bootjar'
     }
+
+    stage ("Clean-up Pre-existing Resources") {
+	sh 'docker container stop $(docker container list -q)'
+	sh 'docker system prune -f'
+    	sh 'docker rmi -f $(docker images -f "dangling=true" -q)'
+    }
     
     stage ("Containerize the app-docker build") {
         sh 'docker build --rm -t mccdata:v1.0 .'
