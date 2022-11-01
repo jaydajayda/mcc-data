@@ -1,6 +1,6 @@
 node {
     stage ("Git Checkout"){
-        git branch: 'main', url: ' https://github.com/foxwas/sept26-bah-mcc-data.git'
+        git branch: 'main', url: ' https://github.com/jaydajayda/mcc-data.git'
     }
     
     stage ("Gradle Build") {
